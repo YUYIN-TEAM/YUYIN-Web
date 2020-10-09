@@ -6,22 +6,22 @@ var s = String(sessionStorage.getItem("style"))
 var se = document.getElementById(s)
 se.className = "divhit-1"
 
-function make_video(music_name){
+function make_video(music_name) {
     // music_name = this.id
     // console.log(music_name)
     var d = String(sessionStorage.getItem("demo"))
     $.ajax({
         dataType: 'json', type: 'get',
         url: "php/video_make.php",
-        data:{music:music_name,demo:d, style:s},
-        success: function(msg){
+        data: { music: music_name, demo: d, style: s },
+        success: function (msg) {
             console.log(msg);    //控制台输出
         },
         error: function (msg, XMLHttpResponse, textStatus, errorThrown) {
-            console.log("1 异步调用返回失败,XMLHttpResponse.readyState:"+XMLHttpResponse.readyState);
-            console.log("2 异步调用返回失败,XMLHttpResponse.status:"+XMLHttpResponse.status);
-            console.log("3 异步调用返回失败,textStatus:"+textStatus);
-            console.log("4 异步调用返回失败,errorThrown:"+errorThrown);
+            console.log("1 异步调用返回失败,XMLHttpResponse.readyState:" + XMLHttpResponse.readyState);
+            console.log("2 异步调用返回失败,XMLHttpResponse.status:" + XMLHttpResponse.status);
+            console.log("3 异步调用返回失败,textStatus:" + textStatus);
+            console.log("4 异步调用返回失败,errorThrown:" + errorThrown);
             console.log(msg);    //控制台输出
         }
     });
@@ -40,45 +40,45 @@ function getprocess() {
 
     $.ajax({
         url: "./rec/list/process.txt",
-        success: function(msg){
+        success: function (msg) {
             console.log(msg);    //控制台输出
             var process = document.getElementById("making")
 
             html = "<div class=\"hid\">" +
                 "</div>"
 
-            var p1=0
+            var p1 = 0
 
-            if(msg === "10"){
+            if (msg === "10") {
                 p0 += 0.3
-                msg = parseInt(msg)+parseInt(p0)
+                msg = parseInt(msg) + parseInt(p0)
                 msg = parseInt(msg)
-                if(msg>=99){
+                if (msg >= 99) {
                     msg = 96
                 }
             }
 
 
 
-            if(parseInt(msg)>30){
+            if (parseInt(msg) > 30) {
                 p1 = 1;
             }
 
-            var p2=0
+            var p2 = 0
 
-            if(parseInt(msg)>70){
+            if (parseInt(msg) > 70) {
                 p2 = 1;
             }
 
-            html += "<div class = \"doing\">"+
+            html += "<div class = \"doing\">" +
                 "<div class=\"do1 text-center\">" +
                 "       <p1>视频合成中，请稍候……</p1>" +
-                "       <p2>已完成"+msg+"%</p2>" +
+                "       <p2>已完成" + msg + "%</p2>" +
                 "   </div>" +
                 "   </br>" +
                 "   </br>" +
                 "   <div class=\"process\">" +
-                "       <div id=\"ongoing\" style = 'width: "+msg+"%'>" +
+                "       <div id=\"ongoing\" style = 'width: " + msg + "%'>" +
                 "       </div>" +
                 "   </div>" +
                 "   <div class=\"do2\">" +
@@ -87,14 +87,14 @@ function getprocess() {
                 "           <p>节奏解析</p>" +
                 "       </div>" +
                 "       <div class=\"step col-md-4\">" +
-                "           <img src=\"./img/icon/5-"+p1+".png\" id=\"i1\" class=\"icon-0\">" +
+                "           <img src=\"./img/icon/5-" + p1 + ".png\" id=\"i1\" class=\"icon-0\">" +
                 "           <p>视频剪辑</p>" +
                 "       </div>" +
                 "       <div class=\"step col-md-4\">" +
-                "           <img src=\"./img/icon/6-"+p2+".png\" id=\"i2\" class=\"icon-0\">" +
+                "           <img src=\"./img/icon/6-" + p2 + ".png\" id=\"i2\" class=\"icon-0\">" +
                 "           <p>视频合成</p>" +
                 "       </div>" +
-                "   </div>"+
+                "   </div>" +
                 "</div>"
             process.innerHTML = html
 
@@ -116,7 +116,7 @@ function getprocess() {
             //
             // process.innerHTML = html
 
-            if(msg==="100"){
+            if (msg === "100") {
                 clearInterval(making);
                 making = setTimeout("done()", 100);
 
@@ -135,44 +135,48 @@ function done() {
 
 }
 
-function musicrec(start){
+function musicrec(start) {
+
     $.ajax({
-        url: "./rec/rec_music.txt",
-        success: function(msg){
+        // url: "./rec/rec_music.txt",
+        url: "http://10.214.242.10:1997/test/rec_res",
+        success: function (msg) {
             console.log(msg);    //控制台输出
+            songList = msg.responseText
             var list = document.getElementById("recmus")
             names = msg.split(",")
             names.pop()
-            let N = names
+            let N = songList
             html = ""
             start = start % names.length
-            end = start+3
-            len = end>names.length?names.length:end
-            for(i=start;i<len;i++){
-                n = "http://10.214.242.10:1996/music/"+s+"/"+names[i];
+            end = start + 3
+            len = end > names.length ? names.length : end
+            console.log('style', s)
+            for (i = start; i < len; i++) {
+                n = "http://10.214.242.10:1996/music/" + s + "/" + names[i];
                 html += "<div class=\"adiv\">" +
                     "       <video controls>" +
-                    "           <source src = \""+n+"\" type = \"audio/mpeg\">"+
+                    "           <source src = \"" + n + "\" type = \"audio/mpeg\">" +
                     "       </video>" +
                     "       <div class=\"audio-right\">" +
                     "           <div class=\"ar1\">" +
                     // "               <a href=\"./php/video_make.php\"><button class=\"arbt2\" id = "+names[i]+">使用</button></a>" +
-                    "               <button class=\"arbt2\" id = "+names[i]+" onclick = make_video(this.id)>使用</button>" +
+                    "               <button class=\"arbt2\" id = " + names[i] + " onclick = make_video(this.id)>使用</button>" +
                     "           </div>" +
                     "       </div>" +
                     "   </div>"
             }
 
-            for(let i=0;i<end-names.length;i++){
-                n = "http://10.214.242.10:1996/music/"+s+"/"+names[i];
+            for (let i = 0; i < end - names.length; i++) {
+                n = "http://10.214.242.10:1996/music/" + s + "/" + names[i];
                 html += "<div class=\"adiv\">" +
                     "       <video controls>" +
-                    "           <source src = \""+n+"\" type = \"audio/mpeg\">"+
+                    "           <source src = \"" + n + "\" type = \"audio/mpeg\">" +
                     "       </video>" +
                     "       <div class=\"audio-right\">" +
                     "           <div class=\"ar1\">" +
                     // "               <a href=\"./php/video_make.php\"><button class=\"arbt2\" id = "+names[i]+">使用</button></a>" +
-                    "               <button class=\"arbt2\" id = "+names[i]+" onclick = make_video(this.id)>使用</button>" +
+                    "               <button class=\"arbt2\" id = " + names[i] + " onclick = make_video(this.id)>使用</button>" +
                     "           </div>" +
                     "       </div>" +
                     "   </div>"
@@ -182,7 +186,7 @@ function musicrec(start){
             //     "<a class=\"change\" onclick=\"change()\">不喜欢？点我换一批</a>"
 
             list.innerHTML = html
-            console.log(html)
+            // console.log(html)
         },
         error: function (msg) {
             console.log(msg);    //控制台输出
@@ -190,7 +194,7 @@ function musicrec(start){
     });
 }
 
-function change(){
+function change() {
     s += 3
     musicrec(s)
 }
