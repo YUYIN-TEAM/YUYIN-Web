@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a9a0aec-8125-4f95-a799-57d73e6e3ada" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="1fORHf4Z1gw6PDIzxSGHdvQ9Cwp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/php" />
+      <recent name="$PROJECT_DIR$/myjs" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a9a0aec-8125-4f95-a799-57d73e6e3ada" name="Default Changelist" comment="" />
+      <created>1596087065719</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596087065719</updated>
+      <workItem from="1596087068138" duration="80944000" />
+      <workItem from="1597549759270" duration="3137000" />
+      <workItem from="1597681109105" duration="450000" />
+      <workItem from="1597681633425" duration="11854000" />
+      <workItem from="1598087868137" duration="59195000" />
+      <workItem from="1600100894154" duration="4762000" />
+      <workItem from="1600135946799" duration="1807000" />
+      <workItem from="1600421730452" duration="96000" />
+      <workItem from="1600831631978" duration="2103000" />
+      <workItem from="1601313611336" duration="2100000" />
+      <workItem from="1601467952547" duration="605000" />
+      <workItem from="1601606447853" duration="325000" />
+      <workItem from="1601991946880" duration="426000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="428" y="187" key="#CLI_Interpreters" timestamp="1597548380986">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="428" y="187" key="#CLI_Interpreters/0.0.1680.1050@0.0.1680.1050" timestamp="1597548380986" />
+    <state x="516" y="175" key="#PHP" timestamp="1597074269408">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="516" y="175" key="#PHP/0.0.1680.1050@0.0.1680.1050" timestamp="1597074269408" />
+    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600092543043">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600092543043" />
+    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596851908790">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1596851908790" />
+    <state x="661" y="455" key="NewPhpFileDialog" timestamp="1597069990817">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="661" y="455" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1597069990817" />
+    <state x="349" y="164" key="SettingsEditor" timestamp="1597548382053">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="349" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1597548382053" />
+    <state x="0" y="0" width="1638" height="1050" maximized="true" key="dock-window-1" timestamp="1597424808612">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="0" y="0" width="1638" height="1050" maximized="true" key="dock-window-1/0.23.1680.1027@0.23.1680.1027" timestamp="1597424808612" />
+  </component>
+</project>
