@@ -6,7 +6,7 @@ var s = String(sessionStorage.getItem("style"))
 var se = document.getElementById(s)
 se.className = "divhit-1"
 
-function make_video(music_name) {
+function make_video_php(music_name) {
     // music_name = this.id
     // console.log(music_name)
     var d = String(sessionStorage.getItem("demo"))
@@ -34,19 +34,55 @@ function make_video(music_name) {
     // location.href = "./generate-7.html"
 }
 
+
+
+//qjchen-begin
+function make_video(music_name) {
+    // music_name = this.id
+    console.log(music_name)
+    var demo = 'test'
+    var s = String(sessionStorage.getItem("style"))
+    var d = String(sessionStorage.getItem("demo"))
+    console.log(s)
+    console.log(d)
+    $.ajax({
+        dataType: 'json', type: 'get',
+        url: "http://10.214.242.10:1997/test/make?music_name=" + music_name + '&style=' + s,
+        // data: { music: music_name, demo: d, style: s },
+        success: function (msg) {
+            console.log(msg);    //控制台输出
+        },
+        error: function (msg, XMLHttpResponse, textStatus, errorThrown) {
+            console.log("1 异步调用返回失败,XMLHttpResponse.readyState:" + XMLHttpResponse.readyState);
+            console.log("2 异步调用返回失败,XMLHttpResponse.status:" + XMLHttpResponse.status);
+            console.log("3 异步调用返回失败,textStatus:" + textStatus);
+            console.log("4 异步调用返回失败,errorThrown:" + errorThrown);
+            console.log(msg);    //控制台输出
+        }
+    });
+
+    making = null
+    making = setInterval("getprocess()", 100);
+
+    // alert("完成！")
+    // location.reload()
+    // location.href = "./generate-7.html"
+}
+//qjchen-end
+
 var p0 = 0
 
 function getprocess() {
 
     $.ajax({
-        url: "./rec/list/process.txt",
+        url: "http://10.214.242.10:1997/test/make_pg",
         success: function (msg) {
             console.log(msg);    //控制台输出
+            msg = msg.responseText
             var process = document.getElementById("making")
 
             html = "<div class=\"hid\">" +
                 "</div>"
-
             var p1 = 0
 
             if (msg === "10") {
@@ -118,7 +154,7 @@ function getprocess() {
 
             if (msg === "100") {
                 clearInterval(making);
-                making = setTimeout("done()", 100);
+                making = setTimeout("done()", 500);
 
             }
             // console.log(html)
@@ -135,25 +171,37 @@ function done() {
 
 }
 
+function split_list_string(responseText) {
+    let tempList = responseText.substr(1, responseText.length - 2).split(", ")
+    for (let i = 0; i < tempList.length; i++) {
+        let nowstr = tempList[i]
+        tempList[i] = nowstr.substr(1, nowstr.length - 2)
+    }
+    return tempList
+}
+
 function musicrec(start) {
 
     $.ajax({
         // url: "./rec/rec_music.txt",
         url: "http://10.214.242.10:1997/test/rec_res",
         success: function (msg) {
-            console.log(msg);    //控制台输出
-            songList = msg.responseText
+            console.log(msg.responseText);    //控制台输出
+            var songList = split_list_string(msg.responseText)
             var list = document.getElementById("recmus")
-            names = msg.split(",")
-            names.pop()
+            console.log(songList)
+            // let names = songList.split(",")
+            // names.pop()
+            // console.log(names)
             let N = songList
+            names = songList
             html = ""
             start = start % names.length
             end = start + 3
             len = end > names.length ? names.length : end
             console.log('style', s)
             for (i = start; i < len; i++) {
-                n = "http://10.214.242.10:1996/music/" + s + "/" + names[i];
+                n = "http://10.214.242.10:1998/data/music/" + s + "/" + names[i];
                 html += "<div class=\"adiv\">" +
                     "       <video controls>" +
                     "           <source src = \"" + n + "\" type = \"audio/mpeg\">" +
