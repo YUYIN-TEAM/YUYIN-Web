@@ -140,13 +140,14 @@ End Fixed Navigation
         </div>
 
         <div id="generate-1" class="down3 col-lg-12">
-          <div class="col-md-6 col-md-offset-3 showvideo">
+          <!-- <div class="col-md-6 col-md-offset-3 showvideo"> -->
+            <div class='showvideo'>
             <!--				<div>-->
             <!--					<img src="img/play.png">-->
             <!--				</div>-->
             <video controls id="results-video">
               <!-- <source src="./rec/make.mp4" type="video/mp4"> -->
-              <!-- <source src="http://10.214.242.10:1998/make.mp4" type="video/mp4"> -->
+              <!-- <source src="http://10.214.242.10:1997/data/make.mp4" type="video/mp4"> -->
             </video>
           </div>
           <div class="col-md-8 col-md-offset-2 choices">
@@ -251,10 +252,12 @@ Essential Scripts
     <script>
       var project_name = sessionStorage.getItem("project_name");
       console.log(project_name);
+      var domain = "http://www.next.zju.edu.cn/yuyin"
+      var ip = "http://10.214.242.10:1997"
       var video =
-        '<source src="http://10.214.242.10:1998/data/result_video/' +
+        '<source src="'+ ip + '/data/data/result_video/' +
         project_name +
-		'.mp4" type="video/mp4">';
+        '.mp4" type="video/mp4">';
       $("#results-video").append(video);
       function again() {
         // $.ajax({

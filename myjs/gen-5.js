@@ -1,15 +1,13 @@
 s = 0
 N = []
 var making = null;
-
+var domain = "http://www.next.zju.edu.cn/yuyin"
+var ip = "http://10.214.242.10:1997"
 sessionStorage.setItem("style", "china")
 
 function rec() {
     var demo = String(sessionStorage.getItem("demo"))
     var s = String(sessionStorage.getItem("style"))
-
-
-
     $.ajax({
         dataType: 'json', type: 'get',
         url: "php/music_rec.php",
@@ -40,7 +38,7 @@ function getprocess() {
     demo = sessionStorage.getItem("project_name");
     $.ajax({
         // url: "./rec/list/rec_process.txt",
-        url: "http://10.214.242.10:1997/test/rec_pg?name=" + demo,
+        url: ip + "/test/rec_pg?name=" + demo,
         success: function (msg) {
             console.log(msg);    //控制台输出
             msg = msg.responseText
@@ -86,7 +84,7 @@ function getprocess() {
 
             html += "<div class = \"doing\">" +
                 "<div class=\"do1 text-center\">" +
-                "       <p1>音乐推荐中，请稍候……</p1>" +
+                "       <p1 id=\"toastview\">音乐推荐中，请稍候……</p1>" +
                 "       <p2>已完成" + msg + "%</p2>" +
                 "   </div>" +
                 "   </br>" +
@@ -133,8 +131,10 @@ function getprocess() {
 }
 
 function done() {
-    alert("音乐推荐已完成！")
-    location.href = "./generate-6.html"
+    // alert("音乐推荐已完成！")
+    var msg = "音乐推荐成功！"
+    $("#toastview").text(msg)
+    setTimeout(function(){location.href = "./generate-6.html"}, 5000)
 
 }
 
@@ -168,7 +168,7 @@ function rectest() {
     $.ajax({
         params: { "contentType": "application/json;charset=utf-8" },
         dataType: 'json', type: 'get',
-        url: "http://10.214.242.10:1997/test/rec?name=" + demo + '&style=' + s,
+        url: ip + "/test/rec?name=" + demo + '&style=' + s,
     }).done(function (msg) {
         // msg.setHeader("Access-Control-Allow-Origin", "*");
         console.log(msg);    //控制台输出

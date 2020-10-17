@@ -13,7 +13,11 @@ from flask_cors import *
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-
+def add_header(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'OPTIONS,HEAD,GET,POST'
+    response.headers['Access-Control-Allow-Headers'] = 'x-requested-with'
+    return response
 
 @app.route('/rec', methods=['GET', 'POST'])
 def rec():

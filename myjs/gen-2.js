@@ -1,3 +1,5 @@
+var domain = "http://www.next.zju.edu.cn/yuyin"
+var ip = "http://10.214.242.10:1997"
 function postData() {
   // var formData = new FormData();
   var demo = "test10";
@@ -8,7 +10,7 @@ function postData() {
 
   console.log(formData);
   var url = [
-    "http://10.214.242.10:9880/upload?upload_project_name=",
+    ip + "/upload/upload?upload_project_name=",
     project_name,
     "&upload_type=web",
   ].join("");
@@ -23,7 +25,7 @@ function postData() {
       console.log("before", res);
       res = res.replace(
         "http://10.214.242.10:9881/YUYIN1004/data/input_video",
-        "http://10.214.242.10:1998/data/input_video/" + project_name
+        ip + "/data/data/input_video/" + project_name
       );
       console.log("after", res);
       var video_urls = {"urls": []}
@@ -44,8 +46,8 @@ function postData() {
 }
 $("body").on("change", "#upload", function () {
   var mask =
-    '<div class="hid"></div><div class = "doing"><p class="do1">50%</p><p class="do2">智能生成中···</p></div>';
-  $("body").prepend(mask);
+    '<div class="hid"></div><div class = "doing-small"><p class="do-small2">智能生成中···</p></div>';
+  $("body").prepend(mask); 
   // qjchen begin
   postData();
   // qjchen end

@@ -452,10 +452,30 @@
     z-index: 100;
     text-align: center;
 }
+.doing-small{
+    text-align: center;
+    position: absolute;
+    margin-right: auto; 
+    margin-left: auto;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -150px;
+    justify-content: center;
+    width: 400px;
+    height: 250px;
+    z-index: 101;
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 0;
+    /*line-height: 350px;*/
+}
 
 .doing{
     text-align: center;
     position: absolute;
+    margin-right: -300px; 
+    margin-left: -200px;
     left: 50%;
     top: 50%;
     margin-left: -300px;
@@ -488,9 +508,14 @@
     color: #ff2093;
 }
 
-.do2{
+.do-small2{
     font-size: 25px;
-
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 100px;
 }
 
 .icon-0{

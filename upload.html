@@ -32,7 +32,7 @@
         var formData = new FormData(document.getElementById("upload_file"));
         console.log(formData);
         var url = [
-          "http://10.214.242.10:9880/upload?upload_project_name=",
+          "http://10.214.242.10:1997/upload/upload?upload_project_name=",
           $("#upload_project_name").val(),
           "&upload_type=web"
         ].join("");
@@ -46,7 +46,7 @@
           processData: false,
           success: function (res) {
             console.log('before', res);
-            res = res.replace("http://10.214.242.10:9881/YUYIN1004/data/input_video","http://10.214.242.10:1998/data/input_video/"+ $("#upload_project_name").val())
+            res = res.replace("http://10.214.242.10:9881/YUYIN1004/data/input_video","http://10.214.242.10:1997/data/data/input_video/"+ $("#upload_project_name").val())
             console.log('after', res)
             sessionStorage.setItem("upload_video_url", res)
 

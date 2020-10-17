@@ -1,3 +1,5 @@
+var domain = "http://www.next.zju.edu.cn/yuyin"
+var ip = "http://10.214.242.10:1997"
 function postData() {
   // var formData = new FormData();
   var demo = "test10";
@@ -10,7 +12,7 @@ function postData() {
   var formData = new FormData(document.getElementById("upload_file"));
   console.log(formData);
   var url = [
-    "http://10.214.242.10:9880/upload?upload_project_name=",
+    ip + "/upload/upload?upload_project_name=",
     project_name,
     "&upload_type=web",
   ].join("");
@@ -31,7 +33,7 @@ function postData() {
       console.log("before", res);
       res = res.replace(
         "http://10.214.242.10:9881/YUYIN1004/data/input_video",
-        "http://10.214.242.10:1998/data/input_video/" + project_name
+        ip + "/data/data/input_video/" + project_name
       );
       console.log("after", res);
       upload_video_url.urls.push(res);
@@ -67,7 +69,7 @@ function delete_video(video_id) {
   sessionStorage.setItem("upload_video_url", JSON.stringify(upload_video_url));
   reloadVideoView();
   $.ajax({
-      url: 'http://10.214.242.10:1997/test/del?name='+sessionStorage.getItem("project_name")+ '&video_name='+ file_name /*接口域名地址*/,
+      url: ip + '/test/del?name='+sessionStorage.getItem("project_name")+ '&video_name='+ file_name /*接口域名地址*/,
       type: "get",
       success: function (res) {
         console.log(res)
@@ -91,7 +93,7 @@ function reloadVideoView() {
       "<button class='button btn-primary' onclick = delete_video(this.id) id=" +
       i +
       "> Delete </button>";
-    $("#itv" + i).append(loaded_video, btn);
+    $("#itv" + i).append(loaded_video);
   }
 }
 $("body").on("change", "#upload-3", function () {
