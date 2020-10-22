@@ -320,10 +320,11 @@
 .g6right{
     float: left;
     border: 2px #dddddd solid;
-    border-left: none;
+    /* border-left: none; */
     height: 100%;
-    width: 70%;
+    width: 100%;
     margin: 0;
+    display: inline-flex;
 }
 
 .adiv{
@@ -368,12 +369,46 @@
 
 .musicshow{
     /*border: red 1px solid;*/
-    line-height: 100px;
+    /* line-height: 100px; */
+    width:50%;
+    margin-top:100px;
+    margin-bottom: 50px;
+    /* display:grid; */
 }
+.videoShow{
+    width:50%;
+    height:100%;
+}
+.videoSize{
+    max-width:calc(90%);
+    margin:calc(10%) auto;
+    max-height: calc(80%);
+}
+.videoSize:focus{
 
+    outline:none;
+}
+.audioShow{
+    margin: auto auto;
+    flex-shrink: 0;
+}
+.combineVideoButton{
+    display: flex;
+    margin:20px;
+}
+.audioShow:focus{
+
+    outline:none;
+}
+.audioButton{
+    margin: auto auto;
+    width:20%;
+}
 .musicshow source{
-    margin-top: -100px;
+     margin-top: -100px;
     float: none;
+    width:50%;
+    height:100%;
 }
 
 .ar1, .ar2 {
