@@ -22,7 +22,7 @@ function make_video_php(music_name) {
     error: function (msg, XMLHttpResponse, textStatus, errorThrown) {
       console.log(
         "1 异步调用返回失败,XMLHttpResponse.readyState:" +
-        XMLHttpResponse.readyState
+          XMLHttpResponse.readyState
       );
       console.log(
         "2 异步调用返回失败,XMLHttpResponse.status:" + XMLHttpResponse.status
@@ -70,7 +70,7 @@ function make_video(music_name) {
     error: function (msg, XMLHttpResponse, textStatus, errorThrown) {
       console.log(
         "1 异步调用返回失败,XMLHttpResponse.readyState:" +
-        XMLHttpResponse.readyState
+          XMLHttpResponse.readyState
       );
       console.log(
         "2 异步调用返回失败,XMLHttpResponse.status:" + XMLHttpResponse.status
@@ -210,20 +210,22 @@ function split_list_string(responseText) {
 }
 
 function musicrec(start) {
-  console.log('musicrec')
+  console.log("musicrec");
   var demo = "test10";
   demo = sessionStorage.getItem("project_name");
   getMusicList(demo, start);
 }
 
 function getMusicList(demo, start) {
-  document.getElementById("showVideo").src = "http://10.214.242.10:1998/data/input_video/8j23m2eiz2e.mp4"
+
+  document.getElementById("showVideo").src =
+    "http://10.214.242.10:1998/data/input_video/"+ demo + ".mp4";
   $.ajax({
     // url: "./rec/rec_music.txt",
     url: ip + "/test/rec_res?name=" + demo,
     success: function (msg) {
       console.log(msg.responseText); //控制台输出
-      var songList = split_list_string(msg.responseText);
+      var songList = msg.responseText;
       var list = document.getElementById("recmus");
       console.log(songList);
       // let names = songList.split(",")
@@ -238,11 +240,16 @@ function getMusicList(demo, start) {
       s = String(sessionStorage.getItem("style"));
       console.log("style", s);
       console.log(names);
+      for (var i = 1; i <= 3; i++) {
+        var name = "myVideo" + i;
+        addPlaySyncListener(name, songList[i - 1].start, songList[i - 1].end);
+      }
       for (i = start; i < len; i++) {
-        n = ip + "/data/data/music/" + s + "/" + names[i];
-        var musicPlayer = 'myVideo' + (i + 1);
-        document.getElementById(musicPlayer).src = n;// 设置播放音乐
-        document.getElementById(musicPlayer).nextElementSibling.id=names[i];//设置button id
+        n = ip + "/data/data/music/" + s + "/" + songList[i].name;
+        var musicPlayer = "myVideo" + (i + 1);
+        document.getElementById(musicPlayer).src = n; // 设置播放音乐
+        document.getElementById(musicPlayer).nextElementSibling.id =
+          songList[i].name; //设置button id
         html +=
           '<div class="adiv">' +
           "       <video controls>" +
@@ -293,14 +300,14 @@ function change() {
   musicrec(s);
 }
 
-function addPlaySyncListener(musicPlayer){
+function addPlaySyncListener(musicPlayer, start, end) {
   var showVideo = document.getElementById("showVideo");
   var myVideo = document.getElementById(musicPlayer);
-  myVideo.currentTime = 5;//set Start Time
-  var end = 13;
+  myVideo.currentTime = start; //set Start Time
+  // var end = 13;
   myVideo.addEventListener("timeupdate", function () {
     if (myVideo.currentTime > end) {
-      myVideo.currentTime = 5;
+      myVideo.currentTime = start;
       myVideo.pause();
     }
     if (myVideo.paused === false && showVideo.paused === true) {
@@ -309,13 +316,7 @@ function addPlaySyncListener(musicPlayer){
   });
 }
 
-function setPlaySync(){
-  for(var i = 1; i <= 3; i++)
-  {
-    var name = 'myVideo' + i;
-    addPlaySyncListener(name)
-  }
-}
+function setPlaySync() {}
 
 setTimeout(musicrec(0), 1000);
-setPlaySync()
+setPlaySync();
