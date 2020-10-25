@@ -367,11 +367,17 @@
     line-height: 40px;
 }
 
+.upload-link{
+    margin-top:30px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
 .musicshow{
     /*border: red 1px solid;*/
     /* line-height: 100px; */
     width:50%;
-    margin-top:100px;
+    margin-top:80px;
     margin-bottom: 50px;
     /* display:grid; */
 }
@@ -393,8 +399,10 @@
     flex-shrink: 0;
 }
 .combineVideoButton{
+    
     display: flex;
-    margin:20px;
+    margin-bottom:40px;
+    /* padding-top: 20px; */
 }
 .audioShow:focus{
 
@@ -403,6 +411,7 @@
 .audioButton{
     margin: auto auto;
     width:20%;
+    padding: 5px;
 }
 .musicshow source{
      margin-top: -100px;
@@ -415,6 +424,15 @@
     margin-left: 2%;
     height: 38%;
     width: 100%;
+}
+
+.combineVideoButton button {
+    float: left;
+    font-size: 18px;
+    border: #ff2093 2px solid;
+    background-color: #FFFFFF;
+    color: #ff2093;
+    border-radius: 10px;
 }
 
 .ar1 button,.ar2 button{
@@ -446,7 +464,7 @@
     /*border-left: #ff2093 1px solid;*/
 }
 
-.ar1 button:hover,.ar2 button:hover, .ar1 button:focus,.ar2 button:focus{
+.combineVideoButton button:hover, .ar1 button:hover,.ar2 button:hover, .ar1 button:focus,.ar2 button:focus{
     background-color: #ff2093;
     color: #FFFFFF;
     outline: none;

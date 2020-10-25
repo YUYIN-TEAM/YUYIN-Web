@@ -17,7 +17,7 @@ $a = system($cmd,$ret);
 
 //echo "    <script>
 //                alert('音乐推荐完成！');
-//                location.href='../generate-6.html';
+//                location.href='../4-chooseBestMusic.html';
 //          </script>";
 
 echo $ret

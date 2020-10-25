@@ -32,7 +32,7 @@ function postData() {
       video_urls["urls"].push(res)
 
       sessionStorage.setItem("upload_video_url", JSON.stringify(video_urls));
-      window.location.href = "generate-3.html";
+      window.location.href = "2-uploadVideos.html";
       // alert(res);
       // if (res.data["code"] == "succ") {
       //   alert("成功");

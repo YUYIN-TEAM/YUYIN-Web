@@ -134,7 +134,7 @@ function done() {
     // alert("音乐推荐已完成！")
     var msg = "音乐推荐成功！"
     $("#toastview").text(msg)
-    setTimeout(function(){location.href = "./generate-6.html"}, 5000)
+    setTimeout(function(){location.href = "./4-chooseBestMusic.html"}, 5000)
 
 }
 
