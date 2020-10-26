@@ -304,6 +304,7 @@ function addPlaySyncListener(musicPlayer, start, end) {
   var showVideo = document.getElementById("showVideo");
   var myVideo = document.getElementById(musicPlayer);
   myVideo.currentTime = start; //set Start Time
+  console.log(start, end)
   // var end = 13;
   myVideo.addEventListener("timeupdate", function () {
     if (myVideo.currentTime > end) {
