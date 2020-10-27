@@ -45,13 +45,13 @@ function make_video_php(music_name) {
 function make_video(music_name) {
   // music_name = this.id
   $("video").trigger("pause");
-  console.log(music_name);
+  // console.log(music_name);
   var demo = "test10";
   demo = sessionStorage.getItem("project_name");
   var s = String(sessionStorage.getItem("style"));
   var d = String(sessionStorage.getItem("demo"));
-  console.log(s);
-  console.log(d);
+  // console.log(s);
+  // console.log(d);
   $.ajax({
     dataType: "json",
     type: "get",
@@ -210,7 +210,7 @@ function split_list_string(responseText) {
 }
 
 function musicrec(start) {
-  console.log("musicrec");
+  // console.log("musicrec");
   var demo = "test10";
   demo = sessionStorage.getItem("project_name");
   getMusicList(demo, start);
@@ -226,7 +226,7 @@ function getMusicList(demo, start) {
       console.log(msg.responseText); //控制台输出
       var songList = msg.responseText;
       var list = document.getElementById("recmus");
-      console.log(songList);
+      // console.log(songList);
       // let names = songList.split(",")
       // names.pop()
       // console.log(names)
@@ -237,8 +237,8 @@ function getMusicList(demo, start) {
       end = start + 3;
       len = end > names.length ? names.length : end;
       s = String(sessionStorage.getItem("style"));
-      console.log("style", s);
-      console.log(names);
+      // console.log("style", s);
+      // console.log(names);
       for (var i = 1; i <= 3; i++) {
         var name = "myVideo" + i;
         addPlaySyncListener(name, songList[i - 1].start, songList[i - 1].end);
@@ -302,9 +302,8 @@ function change() {
 function pauseOtherPlayers(musicPlayer) {
   for (var i = 1; i <= 3; i++) {
     var myVideo = document.getElementById("myVideo" + i);
-    console.log(musicPlayer)
     if (musicPlayer != "myVideo" + i) {
-      console.log(musicPlayer, "myVideo" + i);
+      // console.log(musicPlayer, "myVideo" + i);
       myVideo.pause();
     }
   }
@@ -338,5 +337,4 @@ function addPlaySyncListener(musicPlayer, start, end) {
   });
 }
 
-setTimeout(musicrec(0), 2000);
 setTimeout(musicrec(0), 2000);

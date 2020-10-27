@@ -5,6 +5,7 @@ var domain = "http://www.next.zju.edu.cn/yuyin"
 var ip = "http://10.214.242.10:1997"
 sessionStorage.setItem("style", "china")
 
+var process = document.getElementById("reking")
 function rec() {
     var demo = String(sessionStorage.getItem("demo"))
     var s = String(sessionStorage.getItem("style"))
@@ -36,6 +37,7 @@ var p0 = 0
 function getprocess() {
     var demo = 'test10'
     demo = sessionStorage.getItem("project_name");
+
     $.ajax({
         // url: "./rec/list/rec_process.txt",
         url: ip + "/test/rec_pg?name=" + demo,
@@ -73,6 +75,10 @@ function getprocess() {
                 p2 = 1;
             }
 
+            var p3 = 0
+            if (parseInt(msg) > 85) {
+                p3 = 1;
+            }
             if (msg === "75") {
                 p0 += 0.3
                 msg = parseInt(msg) + parseInt(p0)
@@ -82,7 +88,7 @@ function getprocess() {
                 }
             }
 
-            html += "<div class = \"doing\">" +
+            html += "<div class = \"doing-4\">" +
                 "<div class=\"do1 text-center\">" +
                 "       <p1 id=\"toastview\">音乐推荐中，请稍候……</p1>" +
                 "       <p2>已完成" + msg + "%</p2>" +
@@ -94,17 +100,21 @@ function getprocess() {
                 "       </div>" +
                 "   </div>" +
                 "   <div class=\"do2\">" +
-                "       <div class=\"step col-md-4\">" +
+                "       <div class=\"step col-md-3\">" +
                 "           <img src=\"./img/icon/0-1.png\" id=\"i0\" class=\"icon-0\">" +
                 "           <p>视频分析</p>" +
                 "       </div>" +
-                "       <div class=\"step col-md-4\">" +
+                "       <div class=\"step col-md-3\">" +
                 "           <img src=\"./img/icon/1-" + p1 + ".png\" id=\"i1\" class=\"icon-0\">" +
                 "           <p>视觉推荐</p>" +
                 "       </div>" +
-                "       <div class=\"step col-md-4\">" +
+                "       <div class=\"step col-md-3\">" +
                 "           <img src=\"./img/icon/2-" + p2 + ".png\" id=\"i2\" class=\"icon-0\">" +
                 "           <p>情感推荐</p>" +
+                "       </div>" +
+                "       <div class=\"step col-md-3\">" +
+                "           <img src=\"./img/icon/7-" + p3 + ".png\" id=\"i2\" class=\"icon-0\">" +
+                "           <p>节奏推荐</p>" +
                 "       </div>" +
                 "   </div>" +
                 "</div>"

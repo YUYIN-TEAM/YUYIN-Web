@@ -382,6 +382,8 @@
     /* display:grid; */
 }
 .videoShow{
+    display: flex;
+    align-items: center;
     width:50%;
     height:100%;
 }
@@ -517,6 +519,24 @@
     justify-content: center;
     width: 400px;
     height: 250px;
+    z-index: 101;
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 0;
+    /*line-height: 350px;*/
+}
+
+.doing-4{
+    text-align: center;
+    position: absolute;
+    margin-right: -300px; 
+    margin-left: -200px;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -200px;
+    width: 800;
+    height: 350px;
     z-index: 101;
     background: #FFFFFF;
     border-radius: 15px;
