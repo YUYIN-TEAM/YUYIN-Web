@@ -7,7 +7,6 @@ function postData() {
   sessionStorage.setItem("project_name", project_name);
   console.log(project_name);
   var formData = new FormData(document.getElementById("upload_file"));
-
   console.log(formData);
   var url = [
     ip + "/upload/upload?upload_project_name=",

@@ -217,9 +217,8 @@ function musicrec(start) {
 }
 
 function getMusicList(demo, start) {
-
   document.getElementById("showVideo").src =
-    "http://10.214.242.10:1998/data/input_video/"+ demo + ".mp4";
+    "http://10.214.242.10:1998/data/input_video/" + demo + ".mp4";
   $.ajax({
     // url: "./rec/rec_music.txt",
     url: ip + "/test/rec_res?name=" + demo,
@@ -300,12 +299,34 @@ function change() {
   musicrec(s);
 }
 
+function pauseOtherPlayers(musicPlayer) {
+  for (var i = 1; i <= 3; i++) {
+    var myVideo = document.getElementById("myVideo" + i);
+    console.log(musicPlayer)
+    if (musicPlayer != "myVideo" + i) {
+      console.log(musicPlayer, "myVideo" + i);
+      myVideo.pause();
+    }
+  }
+}
+
 function addPlaySyncListener(musicPlayer, start, end) {
   var showVideo = document.getElementById("showVideo");
   var myVideo = document.getElementById(musicPlayer);
   myVideo.currentTime = start; //set Start Time
-  // console.log(start, end)
+  console.log(musicPlayer, start, end);
   // var end = 13;
+  myVideo.addEventListener("pause", function () {
+    myVideo.currentTime = start;
+    myVideo.pause();
+    showVideo.currentTime = 0;
+    showVideo.pause();
+  });
+
+  myVideo.addEventListener("play", function () {
+    pauseOtherPlayers(musicPlayer);
+    myVideo.play();
+  });
   myVideo.addEventListener("timeupdate", function () {
     if (myVideo.currentTime > end) {
       myVideo.currentTime = start;
@@ -317,7 +338,5 @@ function addPlaySyncListener(musicPlayer, start, end) {
   });
 }
 
-function setPlaySync() {}
-
-setTimeout(musicrec(0), 1000);
-setPlaySync();
+setTimeout(musicrec(0), 2000);
+setTimeout(musicrec(0), 2000);
