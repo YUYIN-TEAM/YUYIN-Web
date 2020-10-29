@@ -106,8 +106,8 @@ function getprocess() {
       var p1 = 0;
 
       if (msg === "10") {
-        p0 += 0.3;
-        msg = parseInt(msg) + parseInt(p0);
+        p0 += Math.ceil(Math.random()*4)/2+2
+	msg = parseInt(msg) + parseInt(p0);
         msg = parseInt(msg);
         if (msg >= 99) {
           msg = 96;
