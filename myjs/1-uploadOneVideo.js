@@ -45,7 +45,7 @@ function postData() {
 }
 $("body").on("change", "#upload", function () {
   var mask =
-    '<div class="hid"></div><div class = "doing-small"><p class="do-small2">智能生成中···</p></div>';
+    '<div class="hid"></div><div class = "doing-small"><p class="do-small2">视频上传中···</p></div>';
   $("body").prepend(mask); 
   // qjchen begin
   postData();
