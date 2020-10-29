@@ -3,7 +3,7 @@ var ip = "http://10.214.242.10:1997"
 function postData() {
   // var formData = new FormData();
   var demo = "test10";
-  var project_name = Math.random().toString(36).substr(2);
+  var project_name = "";
   // sessionStorage.setItem("project_name", project_name);
   project_name = sessionStorage.getItem("project_name");
   var upload_video_url = sessionStorage.getItem("upload_video_url");
